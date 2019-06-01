@@ -4,6 +4,11 @@ import java.time.LocalDate;
 
 public class Sample {
 
+    public  enum Weekend {
+        SATURDAY,
+        SUNDAY;
+    }
+
     public static int calculateWorkingDays(LocalDate startDate, LocalDate endDate) {
         System.out.println("Start Date: " + startDate);
         System.out.println("End Date: " + endDate);
@@ -11,7 +16,7 @@ public class Sample {
         int workingDays = 0;
         startDate = startDate.plusDays(1); // To exclude the start date from the count.
         while(!startDate.isAfter(endDate)) {
-            if(!startDate.getDayOfWeek().name().equalsIgnoreCase("SATURDAY") && !startDate.getDayOfWeek().name().equalsIgnoreCase("SUNDAY")){
+            if(!startDate.getDayOfWeek().name().equalsIgnoreCase(Weekend.SATURDAY.toString()) && !startDate.getDayOfWeek().name().equalsIgnoreCase(Weekend.SUNDAY.toString())){
                 workingDays++;
             }
             startDate = startDate.plusDays(1);
